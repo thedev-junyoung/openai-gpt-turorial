@@ -5,10 +5,10 @@ from openai import OpenAI
 from openai.types.chat import ChatCompletion
 from cost_calculator import calculate_costs
 
-class LegalDocumentServiceJSON:
+class OpenAICompletion:
     """
-    Initialize the LegalDocumentServiceJSON class.
-    LegalDocumentServiceJSON 클래스를 초기화합니다.
+    Initialize the OpenAICompletion class.
+    OpenAICompletion 클래스를 초기화합니다.
 
     Args:
         model_name (str): Name of the OpenAI model to use. (사용할 OpenAI 모델의 이름)
@@ -72,7 +72,7 @@ class LegalDocumentServiceJSON:
 if __name__ == "__main__":
     load_dotenv()
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-    service = LegalDocumentServiceJSON(model_name="gpt-3.5-turbo",open_ai_key=OPENAI_API_KEY)  # 사용할 모델을 초기화할 때 지정
+    service = OpenAICompletion(model_name="gpt-3.5-turbo",open_ai_key=OPENAI_API_KEY)  # 사용할 모델을 초기화할 때 지정
     system_prompt = "You are a helpful assistant designed to output JSON."
     user_input = "Who won the world series in 2020?"
     result = service.generate(system_prompt, user_input)
