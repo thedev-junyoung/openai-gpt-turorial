@@ -113,7 +113,7 @@ class OpenAIAssistant:
             self.send_user_message(user_input)  # Send the user message (사용자 메시지를 전송)
             run = self.run_assistant(user_instructions)  # Run the assistant (어시스턴트를 실행)
             response = self.get_run_response(run)  # Get the run response (실행 결과를 가져옴)
-            calculate_costs(response)  
+            calculate_costs(response,  self.model)  
             self.display_response()  # Display the assistant's response (어시스턴트의 응답을 표시)
 
 
@@ -131,7 +131,8 @@ if __name__ == "__main__":
     # OpenAIAssistant 클래스의 인스턴스 생성
     assistant = OpenAIAssistant(
         api_key=OPENAI_API_KEY,
-        model="gpt-4-turbo-preview",
+        #model="gpt-4-turbo-preview",
+        model="gpt-3.5-turbo",
         assistant_name="General Assistant",
         instructions="You are a versatile assistant. Answer questions to the best of your knowledge and run code if necessary.",
         tools=[{"type": "code_interpreter"}]

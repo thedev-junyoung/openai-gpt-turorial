@@ -65,14 +65,14 @@ class LegalDocumentServiceJSON:
             {"role": "user", "content": content_input},
         ]
         response:ChatCompletion = self.call_openai_api(self.model_name, messages)
-        calculate_costs(response)
+        calculate_costs(response,self.model_name)
         return response.choices[0].message.content  # JSON 모드 사용으로 인해 별도의 파싱 불필요
 
 # 사용
 if __name__ == "__main__":
     load_dotenv()
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-    service = LegalDocumentServiceJSON(model_name="gpt-4-turbo-preview",open_ai_key=OPENAI_API_KEY)  # 사용할 모델을 초기화할 때 지정
+    service = LegalDocumentServiceJSON(model_name="gpt-3.5-turbo",open_ai_key=OPENAI_API_KEY)  # 사용할 모델을 초기화할 때 지정
     system_prompt = "You are a helpful assistant designed to output JSON."
     user_input = "Who won the world series in 2020?"
     result = service.generate(system_prompt, user_input)
