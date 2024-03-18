@@ -87,6 +87,9 @@ if __name__ == "__main__":
 
 ```
 
+![이미지 대체 텍스트](images/image%20of%20asset%20API%20execution.png)
+
+
 
 ## References
 - [Text generation with JSON mode](https://platform.openai.com/docs/guides/text-generation/json-mode)
